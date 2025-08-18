@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e4e6eb;
+  
+  /* Novo fundo */
+  background: url("../Imagens/fundo-login.png") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Opcional: overlay escuro para dar contraste */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* Ajuste a opacidade */
+  z-index: 0;
+}
+
+.login-container {
+  position: relative;
+  z-index: 1; /* Para ficar acima do overlay */
+  background-color: rgba(117, 182, 148, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #3a3b3c;
+  color: #e4e6eb;
+  font-size: 14px;
+}
+
+input::placeholder {
+  color: #b0b3b8;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #B3DAC8;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #9dcbb4;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #d1f0e3;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 0.8s ease-out;
+}
