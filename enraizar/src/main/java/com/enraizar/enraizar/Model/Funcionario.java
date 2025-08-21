@@ -10,10 +10,10 @@ import java.time.LocalDateTime;
 public class Funcionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+    private Integer id;
 
     @Column(name = "login_email",length = 50, nullable = false)
-    private String login_email;
+    private String email;
     @Column(name = "senha",length = 60,nullable = false)
     private String senha;
     @Column(name = "nome", length = 50, nullable = false)
@@ -26,10 +26,10 @@ public class Funcionario {
     private String cpf;
     @Column(name = "tipo_usuario",length = 13,nullable = false)
     private String tipo_usuario;
-    @Column(name="create_at",nullable = false)
-    private LocalDateTime create_at;
-    @Column(name="update_at",nullable = false)
-    private LocalDateTime update_at;
+    @Column(name="created_at",nullable = false)
+    private LocalDateTime created_at;
+    @Column(name="updated_at",nullable = false)
+    private LocalDateTime updated_at;
     @ManyToOne
     @JoinColumn(name = "id_setor", referencedColumnName = "id_setor")
     private Setor setor;
@@ -37,34 +37,34 @@ public class Funcionario {
     public Funcionario() {
     }
 
-    public Funcionario(int id_usuario, String login_email, String senha, String sobrenome, String nome, LocalDate data_nascimento, String cpf, String tipo_usuario, LocalDateTime create_at, LocalDateTime update_at, Setor setor) {
-        this.id_usuario = id_usuario;
-        this.login_email = login_email;
+    public Funcionario(int id, String email, String senha, String sobrenome, String nome, LocalDate data_nascimento, String cpf, String tipo_usuario, LocalDateTime created_at, LocalDateTime updated_at, Setor setor) {
+        this.id= id;
+        this.email = email;
         this.senha = senha;
         this.sobrenome = sobrenome;
         this.nome = nome;
         this.data_nascimento = data_nascimento;
         this.cpf = cpf;
         this.tipo_usuario = tipo_usuario;
-        this.create_at = create_at;
-        this.update_at = update_at;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
         this.setor = setor;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
+    public int getId() {
+        return id;
     }
 
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getLogin_email() {
-        return login_email;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin_email(String login_email) {
-        this.login_email = login_email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSenha() {
@@ -115,20 +115,20 @@ public class Funcionario {
         this.tipo_usuario = tipo_usuario;
     }
 
-    public LocalDateTime getCreate_at() {
-        return create_at;
+    public LocalDateTime getCreated_at() {
+        return created_at;
     }
 
-    public void setCreate_at(LocalDateTime create_at) {
-        this.create_at = create_at;
+    public void setCreated_at(LocalDateTime create_at) {
+        this.created_at = created_at;
     }
 
-    public LocalDateTime getUpdate_at() {
-        return update_at;
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
     }
 
-    public void setUpdate_at(LocalDateTime update_at) {
-        this.update_at = update_at;
+    public void setUpdated_at(LocalDateTime update_at) {
+        this.updated_at = updated_at;
     }
 
     public Setor getSetor() {

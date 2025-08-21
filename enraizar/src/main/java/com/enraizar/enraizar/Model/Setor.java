@@ -10,7 +10,7 @@ public class Setor {
     private int id_setor;
     @Column(name = "nome", length = 50, nullable = false)
     private String nome;
-    @Column (name = "descrisao", length = 200, nullable = true)
+    @Column (name = "descricao", length = 200, nullable = true)
     private String descrisao;
 
     public Setor() {
