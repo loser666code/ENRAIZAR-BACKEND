@@ -1,0 +1,144 @@
+usuário enraizar_admin
+senha Enraizardev2025
+
+
+comando usados na criação do  banco de dados.
+
+
+-- 1. Criar banco de dados
+
+CREATE DATABASE IF NOT EXISTS enraizar;   -- Cria o banco 'enraizar' caso não exista
+USE enraizar;                             -- Seleciona o banco para uso
+
+
+-- 2. Criar tabela SETORES
+
+CREATE TABLE setores (
+    id_setor INT AUTO_INCREMENT PRIMARY KEY,   -- Identificador único do setor
+    nome VARCHAR(50) NOT NULL UNIQUE,          -- Nome do setor (ex: RH, TI, etc.) e deve ser único
+    descricao VARCHAR(200) DEFAULT NULL        -- Descrição opcional do setor
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;       -- Usa InnoDB (suporta chaves estrangeiras) e UTF8MB4 (acentos e emojis)
+
+
+-- 3. Criar tabela USUÁRIOS
+
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY, -- Identificador único do usuário
+    login_email VARCHAR(50) NOT NULL UNIQUE,   -- E-mail do usuário, obrigatório e único
+    senha CHAR(60) NOT NULL,                   -- Senha criptografada (ex: bcrypt gera 60 caracteres)
+    nome VARCHAR(50) NOT NULL,                 -- Primeiro nome do usuário
+    sobrenome VARCHAR(50) NOT NULL,            -- Sobrenome do usuário
+    data_nascimento DATE NOT NULL,             -- Data de nascimento (formato: YYYY-MM-DD)
+    cpf VARCHAR(14) NOT NULL UNIQUE,           -- CPF (com pontos e traço, ex: 123.456.789-01), único
+    id_setor INT,                              -- Relacionamento com a tabela de setores
+    tipo_usuario ENUM('Administrador','Colaborador') 
+        NOT NULL DEFAULT 'Colaborador',        -- Tipo do usuário, por padrão é 'Colaborador'
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Data/hora de criação do registro (preenchido automaticamente)
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
+        ON UPDATE CURRENT_TIMESTAMP,           -- Data/hora da última atualização (atualiza automaticamente)
+    FOREIGN KEY (id_setor) REFERENCES setores(id_setor) -- Relaciona id_setor com a tabela setores
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+-- 4. Inserir setores iniciais
+
+INSERT INTO setores (nome, descricao) VALUES
+('RH', 'Recursos Humanos'),                            -- Setor responsável por gestão de pessoas
+('Financeiro', 'Gestão financeira e contabilidade'),   -- Setor responsável por finanças
+('TI', 'Tecnologia da Informação'),                    -- Setor responsável por sistemas e infraestrutura
+('Marketing', 'Comunicação e campanhas'),              -- Setor responsável pela comunicação
+('Operações', 'Atividades operacionais da empresa');   -- Setor responsável pela operação principal
+
+
+-- 5. Inserir usuário administrador Paulo
+
+INSERT INTO usuarios (
+    login_email, senha, nome, sobrenome, data_nascimento, cpf, id_setor, tipo_usuario
+) VALUES (
+    'paulo_enraizar@gmail.com',                        -- E-mail do Paulo
+    SHA2('enraizarp@im', 256),                         -- Senha do Paulo convertida para hash SHA2-256
+    'Paulo',                                           -- Nome
+    'Paim',                                            -- Sobrenome
+    '1994-03-26',                                      -- Data de nascimento no formato YYYY-MM-DD
+    '12345678901',                                     -- CPF (sem formatação, mas pode armazenar com pontos e traço)
+    (SELECT id_setor FROM setores WHERE nome = 'RH'),  -- Busca o id do setor RH automaticamente
+    'Administrador'                                    -- Define Paulo como administrador
+);
+
+
+-- 6. Verificar inserções
+
+SELECT * FROM setores;                                 -- Mostra todos os setores cadastrados
+SELECT id_usuario, nome, sobrenome, login_email, tipo_usuario 
+FROM usuarios;                                         -- Mostra lista resumida de usuários
+
+
+-- 7
+
+CREATE TABLE emocoes (
+    id_emocao INT AUTO_INCREMENT PRIMARY KEY,       -- Identificador único da emoção
+    descricao VARCHAR(50) NOT NULL,                 -- Nome da emoção (ex: "Muito bem", "Complicado")
+    valor INT NOT NULL CHECK (valor BETWEEN 0 AND 10) -- Intensidade (0 a 10)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+
+
+INSERT INTO emocoes (descricao, valor) VALUES
+('Muito bem', 10),
+('Bem', 8),
+('Normal', 7),
+('Apático', 0),
+('Complicado', 3),
+('Difícil', 2),
+('Muito difícil', 1);
+
+
+
+
+
+
+
+-- 8.
+
+CREATE TABLE calendario (
+    id_calendario INT AUTO_INCREMENT PRIMARY KEY,   -- Identificador único
+    id_usuario INT NOT NULL,                        -- Relaciona com o colaborador
+    data DATE NOT NULL,                             -- Dia do registro
+    hora TIME DEFAULT NULL,                         -- hora do registro
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE
+);
+
+
+
+
+
+
+
+
+
+-- 9
+
+CREATE TABLE calendario_emocoes (
+    id_calendario INT NOT NULL,                     -- Data de referência
+    id_emocao INT NOT NULL,                         -- Emoção escolhida
+    observacao VARCHAR(200) DEFAULT NULL,           -- comentário do colaborador
+    PRIMARY KEY (id_calendario, id_emocao),         -- Evita duplicidade 
+    FOREIGN KEY (id_calendario) REFERENCES calendario(id_calendario) ON DELETE CASCADE,
+    FOREIGN KEY (id_emocao) REFERENCES emocoes(id_emocao) ON DELETE CASCADE
+);
+
+
+
+
+alimentação 
+
+INSERT INTO calendario (id_usuario, data) 
+VALUES (1, '2025-08-16');
+
+
+
+INSERT INTO calendario_emocoes (id_calendario, id_emocao, observacao) 
+VALUES (1, 5, 'Semana difícil, muito trabalho acumulado');
+
