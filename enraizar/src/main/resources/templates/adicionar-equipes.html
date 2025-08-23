@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Adicionar Equipe!</title>
+</head>
+
+<body>
+    <form th:action="@{/adicionar-equipes}" th:object="${equipe}" method="post">
+        <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+        <input type="text" th:field="*{descricao}" id="descricao" placeholder="Descrição">
+        <input type="submit" value="Adicionar Equipe!">
+    </form>
+</body>
+
+</html>

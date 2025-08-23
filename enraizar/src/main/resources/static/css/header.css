@@ -1,0 +1,37 @@
+.top-header {
+    position: fixed;
+    /* Fixa o header no topo */
+    top: 0;
+    /* Alinha no topo */
+    left: 0;
+    /* Alinha à esquerda */
+    width: 100vw;
+    /* Ocupa toda a largura da tela */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #75B694;
+    color: white;
+    height: 50px;
+
+}
+
+/* Logo + texto */
+.logo-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Tamanho e formato da logo */
+.logo {
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    padding: 2px;
+}

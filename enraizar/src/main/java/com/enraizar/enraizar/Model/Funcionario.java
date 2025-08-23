@@ -26,18 +26,13 @@ public class Funcionario {
     private String cpf;
     @Column(name = "tipo_usuario",length = 13,nullable = false)
     private String tipo_usuario;
-    @Column(name="created_at",nullable = false)
-    private LocalDateTime created_at;
-    @Column(name="updated_at",nullable = false)
-    private LocalDateTime updated_at;
-    @ManyToOne
-    @JoinColumn(name = "id_setor", referencedColumnName = "id_setor")
-    private Setor setor;
+    @Column(name = "id_setor",nullable = false)
+    private int id_setor;
 
     public Funcionario() {
     }
 
-    public Funcionario(int id, String email, String senha, String sobrenome, String nome, LocalDate data_nascimento, String cpf, String tipo_usuario, LocalDateTime created_at, LocalDateTime updated_at, Setor setor) {
+    public Funcionario(int id, String email, String senha, String sobrenome, String nome, LocalDate data_nascimento, String cpf, String tipo_usuario, int id_setor) {
         this.id= id;
         this.email = email;
         this.senha = senha;
@@ -46,9 +41,7 @@ public class Funcionario {
         this.data_nascimento = data_nascimento;
         this.cpf = cpf;
         this.tipo_usuario = tipo_usuario;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
-        this.setor = setor;
+        this.id_setor = id_setor;
     }
 
     public int getId() {
@@ -115,27 +108,11 @@ public class Funcionario {
         this.tipo_usuario = tipo_usuario;
     }
 
-    public LocalDateTime getCreated_at() {
-        return created_at;
+    public int getId_setor() {
+        return id_setor;
     }
 
-    public void setCreated_at(LocalDateTime create_at) {
-        this.created_at = created_at;
-    }
-
-    public LocalDateTime getUpdated_at() {
-        return updated_at;
-    }
-
-    public void setUpdated_at(LocalDateTime update_at) {
-        this.updated_at = updated_at;
-    }
-
-    public Setor getSetor() {
-        return setor;
-    }
-
-    public void setSetor(Setor setor) {
-        this.setor = setor;
+    public void setId_setor(int id_setor) {
+        this.id_setor = id_setor;
     }
 }

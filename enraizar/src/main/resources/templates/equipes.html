@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Equipes!</title>
+</head>
+
+<body>
+    <div th:switch="${equipe}">
+        <h2 th:case="null">Nenhuma Equipe!</h2>
+        <div th:case="*">
+            <h2>Funcionarios!</h2>
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Criação</th>
+                    <th>Alteração</th>
+                </thead>
+                <tbody>
+                    <tr th:each="e : ${equipe}">
+                        <td th:text="${e.id}"></td>
+                        <td th:text="${e.nome}"></td>
+                        <td th:text="${e.descricao}"></td>
+                        <td th:text="${e.created_at}"></td>
+                        <td th:text="${e.updated_at}"></td>
+                        <!--<td><a th:href="@{/editar/{id} (id=${f.id})}">Editar!</a></td>
+                        <td><a th:href="@{/deletar/{id} (id=${f.id})}">Excluir!</a></td>-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

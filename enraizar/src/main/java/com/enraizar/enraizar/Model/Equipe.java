@@ -13,18 +13,21 @@ public class Equipe {
     @Column(name = "nome", length = 45,nullable = false)
     private String nome;
     @Column(name = "descricao", nullable = true)
-    private String descrisao;
-    @Column(name = "created_at", nullable = false)
+    private String descricao;
+    @Column(name = "created_at")
     private LocalDateTime created_at;
+    @Column(name = "updated_at")
+    private LocalDateTime updated_at;
 
     public Equipe() {
     }
 
-    public Equipe(String nome, int id, String descrisao, LocalDateTime created_at) {
-        this.nome = nome;
+    public Equipe(int id, String nome, String descricao, LocalDateTime created_at, LocalDateTime updated_at) {
         this.id = id;
-        this.descrisao = descrisao;
+        this.nome = nome;
+        this.descricao = descricao;
         this.created_at = created_at;
+        this.updated_at = updated_at;
     }
 
     public int getId() {
@@ -43,12 +46,12 @@ public class Equipe {
         this.nome = nome;
     }
 
-    public String getDescrisao() {
-        return descrisao;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setDescrisao(String descrisao) {
-        this.descrisao = descrisao;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public LocalDateTime getCreated_at() {
@@ -57,5 +60,13 @@ public class Equipe {
 
     public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
+    }
+
+    public LocalDateTime getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(LocalDateTime updated_at) {
+        this.updated_at = updated_at;
     }
 }

@@ -7,23 +7,21 @@ import jakarta.persistence.*;
 public class EquipeUsuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @ManyToOne
-    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
-    private Funcionario funcionario;
-    @ManyToOne
-    @JoinColumn(name = "id_equipe", referencedColumnName = "id")
-    private Equipe equipe;
-    @Column(name = "Cargo",length = 40, nullable = false)
+    private Integer id;
+    @Column(name = "id_usuario", nullable = false)
+    private int id_usuario;
+    @Column(name = "id_equipe", nullable = false)
+    private int id_equipe;
+    @Column(name = "Cargo", length = 40, nullable = false)
     private String cargo;
 
     public EquipeUsuarios() {
     }
 
-    public EquipeUsuarios(int id, Funcionario funcionario, Equipe equipe, String cargo) {
+    public EquipeUsuarios(int id, int id_usuario, int id_equipe, String cargo) {
         this.id = id;
-        this.funcionario = funcionario;
-        this.equipe = equipe;
+        this.id_usuario = id_usuario;
+        this.id_equipe = id_equipe;
         this.cargo = cargo;
     }
 
@@ -35,20 +33,20 @@ public class EquipeUsuarios {
         this.id = id;
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
-    public Equipe getEquipe() {
-        return equipe;
+    public int getId_equipe() {
+        return id_equipe;
     }
 
-    public void setEquipe(Equipe equipe) {
-        this.equipe = equipe;
+    public void setId_equipe(int id_equipe) {
+        this.id_equipe = id_equipe;
     }
 
     public String getCargo() {

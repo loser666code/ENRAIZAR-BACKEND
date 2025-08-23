@@ -18,8 +18,7 @@ public class FuncionarioService {
     }
 
     public void cadastrarFuncionario (Funcionario f){
-        verificarCPF(f.getCpf(),f.getId());
-        verificarEmail(f.getEmail(),f.getId());
+
         repo.save(f);
     }
 
@@ -28,8 +27,6 @@ public class FuncionarioService {
     }
 
     public void atualizarFuncionario (Funcionario f){
-        verificarCPF(f.getCpf(),f.getId());
-        verificarEmail(f.getEmail(),f.getId());
         repo.save(f);
     }
 

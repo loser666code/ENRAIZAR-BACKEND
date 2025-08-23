@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Cadastro</title>
+</head>
+
+<body>
+    <form th:action="@{/cadastro}" th:object="${funcionario}" method="post">
+        <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+        <input type="text" th:field="*{sobrenome}" id="sobrenome" placeholder="Sobrenome">
+        <input type="email" th:field="*{email}" id="email" placeholder="Email">
+        <input type="text" th:field="*{cpf}" id="cpf" placeholder="CPF">
+        <input type="text" th:field="*{id_setor}" id="setor" placeholder="Setor">
+        <input type="date" th:field="*{data_nascimento}" id="data_nascimento">
+        <input type="password" th:field="*{senha}" id="senha" placeholder="Senha">
+        <label for="tipo">Tipo:</label>
+        <select th:field="*{tipo_usuario}" id="tipo">
+            <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}">Tipo</option>
+        </select>
+        <input type="submit" value="Adicionar Funcionario!">
+    </form>
+</body>
+
+</html>
