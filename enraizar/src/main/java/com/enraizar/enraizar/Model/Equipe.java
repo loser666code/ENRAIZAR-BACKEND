@@ -14,7 +14,7 @@ public class Equipe {
     private String nome;
     @Column(name = "descricao", nullable = true)
     private String descricao;
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime created_at;
     @Column(name = "updated_at")
     private LocalDateTime updated_at;
@@ -28,6 +28,17 @@ public class Equipe {
         this.descricao = descricao;
         this.created_at = created_at;
         this.updated_at = updated_at;
+    }
+
+    @PrePersist
+    public void onCreated(){
+        this.created_at = LocalDateTime.now();
+        this.updated_at = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    public void onUpdated(){
+        this.updated_at = LocalDateTime.now();
     }
 
     public int getId() {

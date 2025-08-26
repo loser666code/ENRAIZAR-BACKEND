@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Adicionar Membro!</title>
+</head>
+
+<body>
+    <form th:action="@{/adicionar-membro/{id} (id=${membro.equipe.id})}" th:object="${membro}" method="post">
+        <label for="">Funcionario:</label>
+        <select th:field="*{funcionario}">
+            <option th:each="f : ${funcionarios}" th:value="${f.id}" th:text="${f.nome + ' ' + f.sobrenome}"></option>
+        </select>
+
+        <label>Cargo</label>
+        <input type="text" th:field="*{cargo}">
+
+        <button type="submit">Adicionar membro!</button>
+    </form>
+</body>
+
+</html>

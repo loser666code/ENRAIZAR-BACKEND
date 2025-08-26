@@ -5,7 +5,9 @@ import com.enraizar.enraizar.Repo.EquipeRepo;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 
 @Controller
 public class EquipeController {
@@ -30,6 +32,27 @@ public class EquipeController {
     @PostMapping("/adicionar-equipes")
     public String adicionarEquipe(Equipe e){
         repo.save(e);
+        return "redirect:/equipes";
+    }
+
+    @GetMapping("/atualizar-equipe/{id}")
+    public String alterarEquipe(@PathVariable("id") int id, Model model){
+        Equipe e = repo.findById(id).orElseThrow(() -> new IllegalArgumentException("id invalido" + id));
+        model.addAttribute("equipe", e);
+        return "editar-equipe";
+
+    }
+
+    @PostMapping("/editar-equipe/{id}")
+    public String atualizarEquipe(@PathVariable("id") int id, Equipe e) {
+        repo.save(e);
+        return "redirect:/equipes";
+    }
+
+    @GetMapping("/deletar-equipe/{id}")
+    public String deletarEquipe(@PathVariable("id") int id, Model model){
+        Equipe e = repo.findById(id).orElseThrow(() -> new IllegalArgumentException("id invalido" + id));
+        repo.delete(e);
         return "redirect:/equipes";
     }
 }

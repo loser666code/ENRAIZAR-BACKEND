@@ -46,7 +46,7 @@ public class FuncionarioController {
         return "lista";
     }
 
-    @GetMapping("/id/{id}")
+    /*@GetMapping("/id/{id}")
     public Optional<Funcionario> obterFuncionarioPorId (@PathVariable Integer id){
         return servico.obeterFuncionarioPorId(id);
     }
@@ -54,7 +54,7 @@ public class FuncionarioController {
     @GetMapping("/nome/{nome}")
     public Optional<Funcionario> obterFuncionarioPorNome (@PathVariable String nome){
         return servico.obeterFuncionarioPorNome(nome);
-    }
+    }*/
 
     @GetMapping("/editar/{id}")
     public String editarFuncionario(@PathVariable("id") int id, Model model){

@@ -8,45 +8,47 @@ public class EquipeUsuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "id_usuario", nullable = false)
-    private int id_usuario;
-    @Column(name = "id_equipe", nullable = false)
-    private int id_equipe;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario", nullable = false)
+    private Funcionario funcionario;
+    @ManyToOne
+    @JoinColumn(name = "id_equipe", nullable = false)
+    private Equipe equipe;
     @Column(name = "Cargo", length = 40, nullable = false)
     private String cargo;
 
     public EquipeUsuarios() {
     }
 
-    public EquipeUsuarios(int id, int id_usuario, int id_equipe, String cargo) {
+    public EquipeUsuarios(Integer id, Funcionario funcionario, Equipe equipe, String cargo) {
         this.id = id;
-        this.id_usuario = id_usuario;
-        this.id_equipe = id_equipe;
+        this.funcionario = funcionario;
+        this.equipe = equipe;
         this.cargo = cargo;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getId_usuario() {
-        return id_usuario;
+    public Funcionario getFuncionario() {
+        return funcionario;
     }
 
-    public void setId_usuario(int id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
-    public int getId_equipe() {
-        return id_equipe;
+    public Equipe getEquipe() {
+        return equipe;
     }
 
-    public void setId_equipe(int id_equipe) {
-        this.id_equipe = id_equipe;
+    public void setEquipe(Equipe equipe) {
+        this.equipe = equipe;
     }
 
     public String getCargo() {
