@@ -14,11 +14,35 @@ public class CalendarioEmocoes {
     @ManyToOne
     @JoinColumn(name = "id_emocao")
     private Emocoes emocao;
-    @Column(name = "observacao", length = 200)
-    private String observacao;
 
     public CalendarioEmocoes() {
     }
 
+    public CalendarioEmocoes(Calendario calendario) {
+        this.calendario = calendario;
+    }
 
+    public Calendario getCalendario() {
+        return calendario;
+    }
+
+    public void setCalendario(Calendario calendario) {
+        this.calendario = calendario;
+    }
+
+    public Emocoes getEmocao() {
+        return emocao;
+    }
+
+    public void setEmocao(Emocoes emocao) {
+        this.emocao = emocao;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

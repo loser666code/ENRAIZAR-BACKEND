@@ -23,6 +23,7 @@
                         <td th:text="${f.sobrenome}"></td>
                         <td th:text="${f.email}"></td>
                         <td th:text="${f.cpf}"></td>
+                        <td><a th:href="@{/calendario/{id} (id=${f.id})}">Humor!</a></td>
                         <td><a th:href="@{/editar/{id} (id=${f.id})}">Editar!</a></td>
                         <td><a th:href="@{/deletar/{id} (id=${f.id})}">Excluir!</a></td>
                     </tr>

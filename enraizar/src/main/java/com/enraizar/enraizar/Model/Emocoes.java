@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Emocoes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id_emocao;
     @Column(name = "nome", nullable = false)
     private String nome;
     @Column(name = "valor", nullable = false)
@@ -16,12 +16,12 @@ public class Emocoes {
     public Emocoes() {
     }
 
-    public int getId() {
-        return id;
+    public int getIdEmocao() {
+        return id_emocao;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdEmocao(int id_emocao) {
+        this.id_emocao = id_emocao;
     }
 
     public String getNome() {

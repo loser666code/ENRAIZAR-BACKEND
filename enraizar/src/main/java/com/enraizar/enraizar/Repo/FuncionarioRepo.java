@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface FuncionarioRepo extends JpaRepository<Funcionario,Integer> {
-    Optional<Funcionario> findById(Integer id);
     Optional<Funcionario> findByNome(String nome);
     Optional<Funcionario>findByCpf(String cpf);
     Optional<Funcionario>findByEmail(String email);

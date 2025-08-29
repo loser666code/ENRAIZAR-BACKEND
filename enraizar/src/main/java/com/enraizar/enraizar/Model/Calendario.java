@@ -9,7 +9,7 @@ import java.util.Date;
 public class Calendario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id_calendario;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Funcionario funcionario;
@@ -22,6 +22,7 @@ public class Calendario {
 
     public Calendario(Funcionario funcionario) {
         this.funcionario = funcionario;
+        this.data = new Date();
     }
 
     @PrePersist
@@ -31,12 +32,12 @@ public class Calendario {
         }
     }
 
-    public int getId() {
-        return id;
+    public int getId_calendario() {
+        return id_calendario;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_calendario(int id_calendario) {
+        this.id_calendario = id_calendario;
     }
 
     public Funcionario getFuncionario() {

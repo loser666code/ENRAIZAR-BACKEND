@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Humor!</title>
+    <link rel="stylesheet" th:href="@{/css/calendario.css}">
+</head>
+
+<body>
+    <div class="calendario">
+        <div class="calendario-header" id="mes-ano">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Dom</th>
+                    <th>Seg</th>
+                    <th>Ter</th>
+                    <th>Qua</th>
+                    <th>Qui</th>
+                    <th>Sex</th>
+                    <th>Sáb</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:with="firstDay=${primeiroDia.dayOfWeek.value}">
+                    <td th:each="i : ${#numbers.sequence(1, primeiroDia.dayOfWeek.value % 7)}"></td>
+                    <td th:each="day : ${#numbers.sequence(1, ultimoDia.dayOfMonth)}"
+                        th:class="${humores[T(java.time.Date).of(hoje.year, hoje.monthValue, day)]}"
+                        th:text="${day}">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="container-humor">
+        <form th:action="@{/calendario/{idFuncionario}/emocao/1(idFuncionario=${funcionario.id})}" method="post">
+            <button type="submit"><img th:src="@{/imagens/humor/muitoBem.png}" class="humor"></button>
+        </form>
+        <form th:action="@{/calendario/{idFuncionario}/emocao/2(idFuncionario=${funcionario.id})}" method="post">
+            <button type="submit"><img th:src="@{/imagens/humor/bem.png}" class="humor"></button>
+        </form>
+        <form th:action="@{/calendario/{idFuncionario}/emocao/3(idFuncionario=${funcionario.id})}" method="post">
+            <button type="submit"><img th:src="@{/imagens/humor/normal.png}" class="humor"></button>
+        </form>
+        <form th:action="@{/calendario/{idFuncionario}/emocao/4(idFuncionario=${funcionario.id})}" method="post">
+            <button type="submit"><img th:src="@{/imagens/humor/apatico.png}" class="humor"></button>
+        </form>
+        <form th:action="@{/calendario/{idFuncionario}/emocao/5(idFuncionario=${funcionario.id})}" method="post">
+            <button type="submit"><img th:src="@{/imagens/humor/complicado.png}" class="humor"></button>
+        </form>
+        <form th:action="@{/calendario/{idFuncionario}/emocao/6(idFuncionario=${funcionario.id})}" method="post">
+            <button type="submit"> <img th:src="@{/imagens/humor/dificil.png}" class="humor"></button>
+        </form>
+        <form th:action="@{/calendario/{idFuncionario}/emocao/7(idFuncionario=${funcionario.id})}" method="post">
+            <button type="submit"><img th:src="@{/imagens/humor/muitoDificil.png}" class="humor"></button>
+        </form>
+    </div>
+    <script th:src="@{/js/calendario.js}"></script>
+</body>
+
+</html>
