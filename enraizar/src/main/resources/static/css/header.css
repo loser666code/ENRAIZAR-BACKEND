@@ -5,7 +5,7 @@
     /* Alinha no topo */
     left: 0;
     /* Alinha à esquerda */
-    width: 100vw;
+    width: 100%;
     /* Ocupa toda a largura da tela */
     display: flex;
     justify-content: space-between;
@@ -19,19 +19,25 @@
 
 /* Logo + texto */
 .logo-header {
+    font-family: 'CascadiaCode';
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 32px;
     color: white;
 }
 
 /* Tamanho e formato da logo */
 .logo {
-    height: 50px;
-    width: 50px;
+    padding-left: 2px;
+    height: 40px;
+    width: 40px;
     object-fit: cover;
-    border-radius: 50%;
-    padding: 2px;
+}
+
+button {
+    margin-right: 50px;
+    border: none;
+    background-color: transparent;
+    color: #1d412e;
+    font-size: 30px;
 }

@@ -9,6 +9,7 @@
     <div th:switch="${equipe}">
         <h2 th:case="null">Nenhuma Equipe!</h2>
         <div th:case="*">
+            <a th:href="@{/adicionar-equipes}">Adicionar Equipe!</a>
             <h2>Funcionarios!</h2>
             <table>
                 <thead>
