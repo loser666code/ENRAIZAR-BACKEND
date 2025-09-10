@@ -1,0 +1,21 @@
+@font-face {
+    font-family: cascadiacode;
+    src: url(../font/CascadiaCode.ttf);
+}
+
+* {
+    font-family: cascadiacode;
+}
+
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+body {
+    background-image: linear-gradient(#E5FEF1, #6ba183);
+    background-repeat: no-repeat;
+    height: 100rem;
+}

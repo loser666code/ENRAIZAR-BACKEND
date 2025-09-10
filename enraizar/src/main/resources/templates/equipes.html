@@ -2,38 +2,41 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/equipes.css}">
     <title>Equipes!</title>
 </head>
 
 <body>
-    <div th:switch="${equipe}">
-        <h2 th:case="null">Nenhuma Equipe!</h2>
-        <div th:case="*">
-            <a th:href="@{/adicionar-equipes}">Adicionar Equipe!</a>
-            <h2>Funcionarios!</h2>
-            <table>
-                <thead>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Criação</th>
-                    <th>Alteração</th>
-                </thead>
-                <tbody>
-                    <tr th:each="e : ${equipe}">
-                        <td th:text="${e.id}"></td>
-                        <td th:text="${e.nome}"></td>
-                        <td th:text="${e.descricao}"></td>
-                        <td th:text="${e.created_at}"></td>
-                        <td th:text="${e.updated_at}"></td>
-                        <td><a th:href="@{/equipe-membros/{id} (id=${e.id})}">Membros!</a></td>
-                        <td><a th:href="@{/atualizar-equipe/{id} (id=${e.id})}">Editar!</a></td>
-                        <td><a th:href="@{/deletar-equipe/{id} (id=${e.id})}">Excluir!</a></td>
-                    </tr>
-                </tbody>
-            </table>
+    <div th:replace="fragment/menu :: menu"></div>
+    <div id="main">
+        <div th:replace="fragment/header :: header"></div>
+
+        <div th:switch="${equipe}" class="container">
+            <h2 th:case="null">Nenhuma Equipe!</h2>
+            <div th:case="*">
+                <div class="header">
+                    <h2>Equipes</h2>
+                    <a th:href="@{/adicionar-equipes}">Adicionar Equipe!</a>
+                </div>
+                <div class="lista">
+                    <div class="equipes">
+                        <div th:each="e : ${equipe}">
+                            <p th:text="${e.id}"></p>
+                            <p th:text="${e.nome}"></p>
+                            <p th:text="${e.descricao}"></p>
+                            <p th:text="${e.created_at}"></p>
+                            <p th:text="${e.updated_at}"></p>
+                            <a th:href="@{/equipe-membros/{id} (id=${e.id})}">Membros!</a>
+                            <a th:href="@{/atualizar-equipe/{id} (id=${e.id})}">Editar!</a>
+                            <a th:href="@{/deletar-equipe/{id} (id=${e.id})}">Excluir!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+        <script th:src="@{/js/menu.js}"></script>
 </body>
 
 </html>

@@ -1,0 +1,122 @@
+@font-face {
+    font-family: cascadiacode;
+    src: url(../font/CascadiaCode.ttf);
+}
+
+* {
+    font-family: cascadiacode;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-image: linear-gradient(#E5FEF1, #6ba183);
+    background-repeat: no-repeat;
+    height: 100rem;
+}
+
+.container {
+    width: 750px;
+    height: fit-content;
+    background-color: white;
+    margin-top: 60px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    box-shadow: 0px 187px 75px rgba(0, 0, 0, 0.01), 0px 105px 63px rgba(0, 0, 0, 0.05), 0px 47px 47px rgba(0, 0, 0, 0.09), 0px 12px 26px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #6ba183;
+    height: 40px;
+    margin: 10px;
+}
+
+.header>h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #f1f1f1;
+}
+
+.header>a {
+    padding: 8px 14px;
+    background-color: white;
+    color: #6ba183;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.header>a:hover {
+    background-color: #38634b;
+}
+
+.lista {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* duas colunas */
+    gap: 20px;
+}
+
+.equipes {
+    background: #6ba183;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+}
+
+.equipes:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.equipes p {
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.equipes a {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.equipes a:nth-child(6) {
+    background: #346338;
+    color: white;
+}
+
+/* Humor */
+.equipes a:nth-child(7) {
+    background: #2f8642;
+    color: white;
+}
+
+/* Editar */
+.equipes a:nth-child(8) {
+    background: #13491a;
+    color: white;
+}
+
+/* Excluir */
+
+.equipes a:hover {
+    opacity: 0.8;
+}

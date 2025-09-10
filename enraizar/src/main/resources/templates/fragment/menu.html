@@ -1,7 +1,10 @@
 <div th:fragment="menu">
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <button class="btn-menu"><a th:href="@{/lista}">Funcionarios!</a></button>
-        <button class="btn-menu"><a th:href="@{/equipes}">Equipes!</a></button>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa-solid fa-xmark"></i></a>
+        <div class="container-btn">
+            <button class="btn-menu"><a th:href="@{/lista}" class="btn-text">Funcionarios!</a></button>
+            <button class="btn-menu"><a th:href="@{/equipes}" class="btn-text">Equipes!</a></button>
+        </div>
+        <img th:src="@{/imagens/logo-enraizar.png}" class="logo">
     </div>
 </div>

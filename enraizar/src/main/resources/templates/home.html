@@ -6,6 +6,7 @@
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/menu.css}">
     <link rel="stylesheet" th:href="@{/css/home.css}">
+    <script src="https://kit.fontawesome.com/32a58e3aef.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -13,6 +14,56 @@
     <div id="main">
         <div th:replace="fragment/header :: header"></div>
         <div class="container">
+            <ul>
+                <li>
+                    <a href="">
+                        <figure>
+                            <img th:src="@{/imagens/robert.jpg}">
+                            <figcaption>Robert Oliveira</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <figure>
+                            <img th:src="@{/imagens/equipe.jpg}">
+                            <figcaption>Equipe Enraizar</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <figure>
+                            <img th:src="@{/imagens/gabriel.jpg}">
+                            <figcaption>Gabriel Raiser</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <figure>
+                            <img th:src="@{/imagens/paulo.jpg}">
+                            <figcaption>Paulo Cezar Paim</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <figure>
+                            <img th:src="@{/imagens/Camila.jpg}">
+                            <figcaption>Camila Schmidt</figcaption>
+                        </figure>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <figure>
+                            <img th:src="@{/imagens/Lucas.jpg}">
+                            <figcaption>Lucas Bizz</figcaption>
+                        </figure>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
     <script th:src="@{/js/menu.js}"></script>

@@ -2,24 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/cadastro.css}">
+    <script src="https://kit.fontawesome.com/32a58e3aef.js" crossorigin="anonymous"></script>
     <title>Atualizar Funcionario!</title>
 </head>
 
 <body>
-    <form action="#" th:action="@{/atualizar/{id} (id=${funcionario.id})}" th:object="${funcionario}" method="post">
-        <input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
-        <input type="text" th:field="*{sobrenome}" id="sobrenome" placeholder="Sobrenome">
-        <input type="email" th:field="*{email}" id="email" placeholder="Email">
-        <input type="text" th:field="*{cpf}" id="cpf" placeholder="CPF">
-        <input type="text" th:field="*{id_setor}" id="setor" placeholder="Setor">
-        <input type="date" th:field="*{data_nascimento}" th:value="${data_nascimento}" id="data_nascimento">
-        <input type="password" th:field="*{senha}" id="senha" placeholder="Senha">
-        <label for="tipo">Tipo:</label>
-        <select th:field="*{tipo_usuario}" id="tipo">
-            <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}">Tipo</option>
-        </select>
-        <input type="submit" value="Adicionar Funcionario!">
-    </form>
+    <div th:replace="fragment/menu :: menu"></div>
+    <div id="main">
+        <div th:replace="fragment/header :: header"></div>
+        <div class="container">
+            <form action="#" th:action="@{/atualizar/{id} (id=${funcionario.id})}" th:object="${funcionario}"
+                method="post">
+                <div class="field"><input type="text" th:field="*{nome}" id="nome" placeholder="Nome"></div>
+                <div class="field"><input type="text" th:field="*{sobrenome}" id="sobrenome" placeholder="Sobrenome">
+                </div>
+                <div class="field"><input type="email" th:field="*{email}" id="email" placeholder="Email"></div>
+                <div class="field"><input type="text" th:field="*{cpf}" id="cpf" placeholder="CPF"></div>
+                <div class="field"><input type="text" th:field="*{id_setor}" id="setor" placeholder="Setor"></div>
+                <div class="field"><input type="date" th:field="*{data_nascimento}" id="data_nascimento"></div>
+                <div class="field"><input type="password" th:field="*{senha}" id="senha" placeholder="Senha"></div>
+                <div class="field"><label for="tipo">Tipo:</label>
+                    <select th:field="*{tipo_usuario}" id="tipo">
+                        <option th:each="t : ${tipos}" th:value="${t}" th:text="${t}">Tipo</option>
+                    </select>
+                </div>
+                <input type="submit" class="btn" value="Editar Funcionario!">
+            </form>
+        </div>
+    </div>
+    <script th:src="@{/js/menu.js}"></script>
 </body>
 
 </html>

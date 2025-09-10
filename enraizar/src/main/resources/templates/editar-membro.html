@@ -3,13 +3,26 @@
 
 <head>
     <title>Atualizar Membro!</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/cadastro.css}">
+    <script src="https://kit.fontawesome.com/32a58e3aef.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
-    <form action="#" th:action="@{/editar-membro/{id} (id=${membro.id})}" th:object="${membro}" method="post">
-        <input type="text" th:field="*{cargo}" placeholder="Cargo">
-        <input type="submit" value="Editar Membro!">
-    </form>
+    <div th:replace="fragment/menu :: menu"></div>
+    <div id="main">
+        <div th:replace="fragment/header :: header"></div>
+        <div class="container">
+            <h2 class="title">Enraizar</h2>
+            <form action="#" th:action="@{/editar-membro/{id} (id=${membro.id})}" th:object="${membro}" method="post">
+                <div class="field"><input type="text" th:field="*{cargo}" placeholder="Cargo"></div>
+                <input type="submit" class="btn" value="Editar Membro!">
+            </form>
+        </div>
+    </div>
+    <script th:src="@{/js/menu.js}"></script>
 </body>
 
 </html>

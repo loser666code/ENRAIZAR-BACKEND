@@ -3,35 +3,39 @@
 
 <head>
     <title>Funcionarios!</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/lista.css}">
+    <script src="https://kit.fontawesome.com/32a58e3aef.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div th:switch="${funcionarios}">
-        <h2 th:case="null">Nenhum funcionario!</h2>
-        <div th:case="*">
-            <a th:href="@{/adicionar-funcionario}">Adicionar Funcionario!</a>
-            <h2>Funcionarios!</h2>
-            <table>
-                <thead>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Email</th>
-                    <th>CPF</th>
-                </thead>
-                <tbody>
-                    <tr th:each="f : ${funcionarios}">
-                        <td th:text="${f.nome}"></td>
-                        <td th:text="${f.sobrenome}"></td>
-                        <td th:text="${f.email}"></td>
-                        <td th:text="${f.cpf}"></td>
-                        <td><a th:href="@{/calendario/{id} (id=${f.id})}">Humor!</a></td>
-                        <td><a th:href="@{/editar/{id} (id=${f.id})}">Editar!</a></td>
-                        <td><a th:href="@{/deletar/{id} (id=${f.id})}">Excluir!</a></td>
-                    </tr>
-                </tbody>
-            </table>
+    <div th:replace="fragment/menu :: menu"></div>
+    <div id="main">
+        <div th:replace="fragment/header :: header"></div>
+        <div th:switch="${funcionarios}" class="container">
+            <h2 th:case="null">Nenhum funcionario!</h2>
+            <div th:case="*">
+                <div class="header">
+                    <h2>Funcionarios!</h2>
+                    <a th:href="@{/adicionar-funcionario}">Adicionar Funcionario</a>
+                </div>
+                <div class="lista">
+                    <div th:each="f : ${funcionarios}">
+                        <div class="funcionarios">
+                            <p th:text="${f.nome} + ' ' + ${f.sobrenome}"></p>
+                            <p th:text="${f.email}"></p>
+                            <p th:text="${f.cpf}"></p>
+                            <a th:href="@{/humor}">Humor!</a>
+                            <a th:href="@{/editar/{id} (id=${f.id})}">Editar!</a>
+                            <a th:href="@{/deletar/{id} (id=${f.id})}">Excluir!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script th:src="@{/js/menu.js}"></script>
 </body>
 
 </html>

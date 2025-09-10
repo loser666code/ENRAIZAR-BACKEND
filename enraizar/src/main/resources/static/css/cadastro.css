@@ -1,0 +1,111 @@
+@font-face {
+    font-family: cascadiacode;
+    src: url(../font/CascadiaCode.ttf);
+}
+
+* {
+    font-family: cascadiacode;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-image: url(../imagens/fundo-login.png);
+}
+
+.container {
+    margin-top: 100px;
+    width: 290px;
+    display: flex;
+    padding: 1.9rem 1.2rem;
+    background-color: #75b694;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.field {
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+    background-color: #b7e6c1;
+    border-radius: 4px;
+    padding: .5em 1em;
+}
+
+input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #2d5336;
+}
+
+input::placeholder {
+    color: #2d5336;
+}
+
+label {
+    color: #2d5336;
+}
+
+
+
+.title {
+    margin-bottom: 1rem;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #2d5336;
+}
+
+.btn {
+    margin-top: 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: .8em;
+    text-transform: uppercase;
+    padding: 0.6em 1.2em;
+    background-color: #aae0c4;
+    color: #2d5336;
+    box-shadow: 0 8px 24px 0 rgba(167, 255, 193, 0.2);
+    transition: all .3s ease-in-out;
+}
+
+.field input:focus::placeholder {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+.btn:hover {
+    background-color: #2d5336;
+    color: #aae0c4;
+    box-shadow: 0 8px 24px 0 rgba(16, 112, 48, 0.2);
+}
+
+select {
+    background-color: #75b694;
+    color: #2d5336;
+    border: 2px solid rgb(62, 97, 79);
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+select:hover {
+  background-color: #2d5336; /* muda cor ao passar mouse */
+  color: #75b694;
+}
+
+select:focus {
+  outline: none;
+  border-color: #2d5336;
+}

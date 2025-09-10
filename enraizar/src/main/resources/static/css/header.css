@@ -1,12 +1,8 @@
 .top-header {
     position: fixed;
-    /* Fixa o header no topo */
     top: 0;
-    /* Alinha no topo */
     left: 0;
-    /* Alinha à esquerda */
     width: 100%;
-    /* Ocupa toda a largura da tela */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,7 +15,7 @@
 
 /* Logo + texto */
 .logo-header {
-    font-family: 'CascadiaCode';
+    font-family: bogart-regular;
     display: flex;
     align-items: center;
     font-size: 32px;
@@ -29,8 +25,8 @@
 /* Tamanho e formato da logo */
 .logo {
     padding-left: 2px;
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     object-fit: cover;
 }
 

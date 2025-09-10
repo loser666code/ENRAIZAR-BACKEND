@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Humor</title>
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/menu.css}">
+    <link rel="stylesheet" th:href="@{/css/humor.css}">
+    <script src="https://kit.fontawesome.com/32a58e3aef.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+
+<body>
+    <div th:replace="fragment/menu :: menu"></div>
+    <div id="main">
+        <div th:replace="fragment/header :: header"></div>
+        <div class="container">
+            <canvas id="myChart" style="width:100%;max-width:1000px;margin: auto;"></canvas>
+        </div>
+    </div>
+    <script th:src="@{/js/menu.js}"></script>
+</body>
+<script>
+    const xValues = ["Feliz", "Bem", "Normal", "Triste", "Muito mal"];
+    const yValues = [55, 49, 44, 24, 15];
+    const barColors = [
+        "#49793d",
+        "#37652e",
+        "#3e9c30",
+        "#0e2e0b",
+        "#121e0f"
+    ];
+
+    new Chart("myChart", {
+        type: "doughnut",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: "Humor do Colaborador"
+            }
+        }
+    });
+</script>
+
+</html>
